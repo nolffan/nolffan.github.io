@@ -35,6 +35,3 @@ server, sound driver and client effects are all above 99%.
 - Speech (MP3) decoded in our own `SndDrv.dll` — no codec to install
 - `ContractJack.exe` launches straight into the game; the launcher is
   `ContractJackLauncher.exe`
-
-Nightly public archives are built on every push to `master`.
-{: .muted}
