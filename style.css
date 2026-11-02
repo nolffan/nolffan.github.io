@@ -108,6 +108,7 @@ h4 { font: 600 .78rem/1 "IBM Plex Mono", monospace; text-transform: uppercase; l
 main > section { padding: 80px 16px; }
 main > section > * { max-width: 1100px; margin-left: auto; margin-right: auto; }
 .alt { background: var(--bg-alt); }
+.approach { padding-bottom: 0; }   /* shares its background with the first project */
 
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
 .card { background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--accent); padding: 20px 22px; border-radius: 4px; }
