@@ -40,17 +40,6 @@ footer: >-
   here — you need your own copies of the games.
 ---
 
-## Get involved
-
-Every repository builds with one `make` on Linux with Docker: the period
-compilers, the retail game fetch and the install all come along as
-submodules. The `guides/` walk through the method — from reading the retail
-machine code to the compiler quirks that decide the last few bytes — and
-`make progress` shows where things stand.
-
-Found a bug in the original games along the way? Each project keeps a
-`RETAIL_BUGS.md`.
-
 ## With thanks
 
 1. **Monolith Productions**, for the games, and for releasing their source.
