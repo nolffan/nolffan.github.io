@@ -35,7 +35,7 @@ The engine — `Lithtech.exe` and `server.dll` — is built from the 2006
 LithTech Jupiter source, back-ported to 2002. The sound driver and message DLL
 are reconstructed from the retail binaries, and the server directory from
 Monolith's Titan code. Nothing of the retail engine remains in the game
-directory, and there is no SecuROM.
+directory.
 
 #### Modern build
 
