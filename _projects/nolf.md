@@ -50,6 +50,7 @@ reconstructed from the retail DLLs.
 - [OpenMiles](https://github.com/maci0/openmiles) and an FFmpeg-based Bink player replace proprietary middleware
 - Fixes and features from the NOLF Modernizer, reimplemented in source
 - Bundled DirectMusic, so the music plays under Wine and Proton
-- Multiplayer restored: the internet server list works again through
-  OpenSpy, and servers check passwords and no longer crash on a `%` in a
-  name
+- Multiplayer restored: GameSpy's master server is long gone, so the game
+  now talks to [OpenSpy](https://openspy.net)'s instead — the internet
+  server list works again and servers can advertise. Servers also check
+  passwords themselves and no longer crash on a `%` in a name

@@ -37,4 +37,5 @@ server, sound driver and client effects are all above 99%.
 - Intro movies through our FFmpeg-based Bink player
 - Speech (MP3) decoded in our own `SndDrv.dll` — no codec to install
 - Multiplayer without GameSpy's dead CD-key servers, so clients can join
-  again; the Internet server list is to come
+  again; the Internet server list, through
+  [OpenSpy](https://openspy.net), is to come
