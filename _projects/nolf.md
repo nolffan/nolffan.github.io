@@ -47,3 +47,6 @@ reconstructed from the retail DLLs.
 - [OpenMiles](https://github.com/maci0/openmiles) and an FFmpeg-based Bink player replace proprietary middleware
 - Fixes and features from the NOLF Modernizer, reimplemented in source
 - Bundled DirectMusic, so the music plays under Wine and Proton
+- Multiplayer restored: the internet server list works again through
+  OpenSpy, and servers check passwords and no longer crash on a `%` in a
+  name

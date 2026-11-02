@@ -43,3 +43,7 @@ directory, and there is no SecuROM.
 - XInput controllers; A skips cut-scenes
 - Our own Bink player on FFmpeg — no RAD binaries
 - NOLF 2 Modernizer fixes, reimplemented in source
+- Multiplayer restored: with Sierra's CD-key servers gone, retail can no
+  longer join an Internet server or one by address; the modern build drops
+  the key check so those work again, and servers are hardened against
+  crashes

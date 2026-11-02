@@ -8,8 +8,8 @@ hero:
     We reconstruct Monolith's early-2000s games and their engine so that
     every executable and DLL compiles back to the exact bytes that shipped,
     with the original compilers. Then we build a *modern* edition on top:
-    widescreen, controllers, open-source middleware, and the retail bugs
-    fixed.
+    widescreen, controllers, restored multiplayer, open-source middleware,
+    and the retail bugs fixed.
 
 approach:
   title: The approach
