@@ -44,6 +44,6 @@ reconstructed from the retail DLLs.
 
 - Direct3D 9 renderer, widescreen, AA and anisotropic filtering
 - XInput controller support
-- OpenMiles and an FFmpeg-based Bink player replace proprietary middleware
+- [OpenMiles](https://github.com/maci0/openmiles) and an FFmpeg-based Bink player replace proprietary middleware
 - Fixes and features from the NOLF Modernizer, reimplemented in source
 - Bundled DirectMusic, so the music plays under Wine and Proton

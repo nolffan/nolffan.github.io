@@ -57,5 +57,5 @@ Found a bug in the original games along the way? Each project keeps a
 **LithTech, Inc. / Touchdown Entertainment** for the Jupiter engine;
 [StenApp](https://github.com/StenApp) for an in-depth knowledge of all things
 NOLF and LithTech; **HeyThereCoffeee (haekb)** for the NOLF and NOLF 2
-Modernizers; ChthonVII and Daniel Gibson; OpenMiles, FFmpeg, Wine, Proton,
+Modernizers; ChthonVII and Daniel Gibson; [OpenMiles](https://github.com/maci0/openmiles), FFmpeg, Wine, Proton,
 DXVK and OpenSpy; and redump.org and archive.org for keeping the discs.
