@@ -1,0 +1,193 @@
+/* nolffan.github.io — 60s spy-dossier styling */
+:root {
+  --bg: #f4ede0;
+  --bg-alt: #ebe1cf;
+  --ink: #1d1a17;
+  --muted: #6b6258;
+  --accent: #e2561c;      /* NOLF orange */
+  --accent-2: #0f7c84;    /* teal */
+  --card: #fffaf1;
+  --line: #d8cbb4;
+  --bar-bg: #e1d5bf;
+  --hero-a: #e2561c;
+  --hero-b: #c23b16;
+  --code-bg: #e9dfcd;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #17191c;
+    --bg-alt: #1e2125;
+    --ink: #ece6dc;
+    --muted: #a39a8e;
+    --accent: #ff7a3d;
+    --accent-2: #3fb8c0;
+    --card: #23272c;
+    --line: #353a41;
+    --bar-bg: #2f343b;
+    --hero-a: #b8441a;
+    --hero-b: #6e230b;
+    --code-bg: #2b3036;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #17191c; --bg-alt: #1e2125; --ink: #ece6dc; --muted: #a39a8e;
+  --accent: #ff7a3d; --accent-2: #3fb8c0; --card: #23272c; --line: #353a41;
+  --bar-bg: #2f343b; --hero-a: #b8441a; --hero-b: #6e230b; --code-bg: #2b3036;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.6 Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent-2); }
+code {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .88em;
+  background: var(--code-bg);
+  padding: .1em .35em;
+  border-radius: 3px;
+  overflow-wrap: anywhere;
+}
+h1, h2, h3 { font-family: "Bebas Neue", Impact, sans-serif; font-weight: 400; letter-spacing: .02em; line-height: 1; }
+h2 { font-size: clamp(2.4rem, 6vw, 3.6rem); margin: 0 0 .4em; }
+h3 { font-size: 1.6rem; margin: .2em 0 .4em; }
+h4 { font: 600 .78rem/1 "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: .14em; color: var(--accent); margin: 1.8em 0 .8em; }
+.muted { color: var(--muted); font-size: .92rem; }
+.center { text-align: center; }
+
+/* ---------- hero ---------- */
+.hero {
+  color: #fff8ee;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(255,255,255,.14) 0 18%, transparent 18.5%),
+    radial-gradient(circle at 85% 20%, rgba(255,255,255,.08) 0 28%, transparent 28.5%),
+    radial-gradient(circle at 85% 20%, rgba(255,255,255,.05) 0 40%, transparent 40.5%),
+    linear-gradient(135deg, var(--hero-a), var(--hero-b));
+  padding: 0 16px 72px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 10px;
+  background: repeating-linear-gradient(90deg, #1d1a17 0 24px, transparent 24px 48px);
+  opacity: .5;
+}
+.topnav {
+  max-width: 1100px; margin: 0 auto; padding: 20px 0;
+  display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+}
+.brand { font: 400 1.8rem/1 "Bebas Neue", sans-serif; color: #fff8ee; text-decoration: none; letter-spacing: .06em; }
+.topnav .links { display: flex; gap: 18px; flex-wrap: wrap; }
+.topnav .links a { color: #fff8ee; text-decoration: none; font-size: .9rem; font-weight: 600; opacity: .85; }
+.topnav .links a:hover { opacity: 1; text-decoration: underline; }
+.hero-inner { max-width: 1100px; margin: 0 auto; padding-top: 56px; }
+.kicker {
+  display: inline-block; font: 600 .75rem/1 "IBM Plex Mono", monospace;
+  text-transform: uppercase; letter-spacing: .2em;
+  border: 2px solid currentColor; padding: 6px 10px; transform: rotate(-2deg);
+  margin: 0 0 24px;
+}
+.hero h1 { font-size: clamp(3rem, 10vw, 6.4rem); margin: 0 0 24px; }
+.lede { max-width: 640px; font-size: 1.15rem; opacity: .95; margin: 0 0 40px; }
+.lede p { margin: 0; }
+.dossier-strip { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip {
+  background: rgba(0,0,0,.22); color: #fff8ee; text-decoration: none;
+  padding: 10px 14px; border-radius: 4px; font-weight: 600; font-size: .92rem;
+  transition: background .15s;
+}
+.chip span { font-family: "IBM Plex Mono", monospace; opacity: .7; margin-right: 6px; }
+.chip:hover { background: rgba(0,0,0,.4); }
+
+/* ---------- sections ---------- */
+main > section { padding: 80px 16px; }
+main > section > * { max-width: 1100px; margin-left: auto; margin-right: auto; }
+.alt { background: var(--bg-alt); }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
+.card { background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--accent); padding: 20px 22px; border-radius: 4px; }
+.card p { margin: 0; color: var(--muted); }
+
+.project-head { margin-bottom: 28px; }
+.file-no {
+  font: 600 .75rem/1 "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: .2em;
+  color: var(--accent); display: block; margin-bottom: 8px;
+}
+.project-head h2 { margin: 0; }
+.sub { color: var(--muted); margin: .4em 0 0; }
+
+.gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.gallery.two { grid-template-columns: repeat(2, 1fr); }
+.gallery figure { margin: 0; position: relative; overflow: hidden; border-radius: 4px; background: #000; }
+.gallery img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; transition: transform .4s; }
+.gallery figure:hover img { transform: scale(1.04); }
+.gallery figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 10px 8px;
+  font-size: .8rem; color: #fff; background: linear-gradient(transparent, rgba(0,0,0,.75));
+}
+.caption { color: var(--muted); font-size: .85rem; margin-top: 8px; }
+@media (max-width: 760px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+
+.two-col { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; margin-top: 36px; align-items: start; }
+@media (max-width: 860px) { .two-col { grid-template-columns: 1fr; gap: 24px; } }
+
+.project-body ul, .project-body ol { padding-left: 0; list-style: none; margin: 0; }
+.project-body p:first-child { margin-top: 0; }
+.project-body ul li { padding-left: 26px; position: relative; margin: .35em 0; }
+.project-body ul li::before { content: "▸"; position: absolute; left: 4px; color: var(--accent); }
+.project-body ol { counter-reset: r; display: grid; gap: 8px; }
+.project-body ol li { counter-increment: r; display: flex; gap: 12px; align-items: center; }
+.project-body ol li::before {
+  content: counter(r); font: 600 .85rem/1 "IBM Plex Mono", monospace;
+  width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center;
+  border: 2px solid var(--accent-2); color: var(--accent-2); flex: none;
+}
+
+/* ---------- progress ---------- */
+.progress-panel {
+  background: var(--card); border: 1px solid var(--line); border-radius: 4px; padding: 24px;
+  position: sticky; top: 16px;
+}
+.progress-panel h4 { margin-top: 0; }
+.big { font: 400 4.6rem/1 "Bebas Neue", sans-serif; color: var(--accent); }
+.big span { font-size: 1.25em; }
+.progress-panel .muted { margin: 4px 0 18px; }
+.bars { list-style: none; padding: 0; margin: 0 0 22px; display: grid; gap: 7px; }
+.bars li { display: grid; grid-template-columns: 7.5em 1fr 2.6em; gap: 10px; align-items: center; font-size: .82rem; }
+.bars span { font-family: "IBM Plex Mono", monospace; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bars i { font-style: normal; text-align: right; color: var(--muted); font-family: "IBM Plex Mono", monospace; }
+.bars b, .mini-bar b { height: 8px; border-radius: 4px; display: block; position: relative;
+  background: linear-gradient(90deg, var(--accent-2) calc(var(--p) * 1%), var(--bar-bg) 0); }
+.mini-bar { margin-top: 10px; }
+
+.btn {
+  display: inline-block; background: var(--accent); color: #fff; text-decoration: none;
+  font-weight: 600; padding: 10px 16px; border-radius: 4px; margin: 4px 6px 0 0; border: 2px solid var(--accent);
+}
+.btn:hover { filter: brightness(1.08); }
+.btn.ghost { background: transparent; color: var(--accent); }
+
+/* ---------- lithtools ---------- */
+.intro { font-size: 1.1rem; }
+.intro p { max-width: 760px; margin: 0; }
+.tool-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin: 32px auto; }
+.tool { background: var(--card); border: 1px solid var(--line); border-radius: 4px; padding: 22px; }
+.tool p { color: var(--muted); margin: 0; font-size: .95rem; }
+.card p { margin: 0; }
+.tool img, .glyph { width: 56px; height: 56px; border-radius: 10px; display: block; margin-bottom: 10px; }
+.glyph {
+  display: grid; place-items: center; font: 400 2rem/1 "Bebas Neue", sans-serif; color: #fff;
+  background: linear-gradient(135deg, var(--accent-2), #0a5157);
+}
+
+/* ---------- closing ---------- */
+.closing > * { max-width: 760px; }
+.closing h2:not(:first-child) { margin-top: 1.4em; }
+footer { background: #1d1a17; color: #c8bfb2; text-align: center; padding: 36px 16px; font-size: .88rem; }
+footer a { color: #ff9a6a; }
+footer p { margin: .4em 0; }

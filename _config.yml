@@ -1,0 +1,26 @@
+title: nolffan
+tagline: LithTech games, rebuilt from source
+description: >-
+  Preserving Monolith's LithTech-era games by rebuilding them from source,
+  byte for byte: No One Lives Forever, No One Lives Forever 2,
+  Contract J.A.C.K., and the LithTech development tools.
+github: https://github.com/nolffan
+theme: null   # no GitHub Pages default theme: the layout is ours
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  auto_ids: false
+
+# One Markdown file per project in _projects/, shown on the front page in
+# `order`. They have no pages of their own.
+collections:
+  projects:
+    output: false
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - Makefile
+  - vendor

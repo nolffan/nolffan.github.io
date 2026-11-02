@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ site.title }} — {{ site.tagline }}</title>
+<meta name="description" content="{{ site.description | strip }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+</head>
+<body>
+{%- assign projects = site.projects | sort: 'order' -%}
+
+<header class="hero">
+  <nav class="topnav">
+    <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <div class="links">
+      {%- for p in projects %}
+      <a href="#{{ p.slug }}">{{ p.nav | default: p.title }}</a>
+      {%- endfor %}
+      <a href="{{ site.github }}">GitHub</a>
+    </div>
+  </nav>
+  <div class="hero-inner">
+    <p class="kicker">{{ page.hero.kicker }}</p>
+    <h1>{{ page.hero.title }}</h1>
+    <div class="lede">{{ page.hero.lede | markdownify }}</div>
+    <div class="dossier-strip">
+      {%- for p in projects %}
+      <a href="#{{ p.slug }}" class="chip"><span>{% if p.order < 10 %}0{% endif %}{{ p.order }}</span> {{ p.title }}</a>
+      {%- endfor %}
+    </div>
+  </div>
+</header>
+
+<main>
+
+{%- if page.approach %}
+<section class="approach">
+  <h2>{{ page.approach.title }}</h2>
+  <div class="cards">
+    {%- for c in page.approach.cards %}
+    <div class="card">
+      <h3>{{ c.title }}</h3>
+      {{ c.text | markdownify }}
+    </div>
+    {%- endfor %}
+  </div>
+</section>
+{%- endif %}
+
+{%- for p in projects %}
+{%- assign repo_url = site.github | append: '/' | append: p.repo %}
+<section id="{{ p.slug }}" class="project{% cycle '', ' alt' %}">
+  <div class="project-head">
+    <span class="file-no">File {% if p.order < 10 %}0{% endif %}{{ p.order }}</span>
+    <h2>{{ p.title }}</h2>
+    <p class="sub">{{ p.subtitle }} · <a href="{{ repo_url }}">nolffan/{{ p.repo }}</a></p>
+  </div>
+
+  {%- if p.gallery %}
+  <div class="gallery{% if p.gallery.size == 2 %} two{% endif %}">
+    {%- for g in p.gallery %}
+    <figure><img src="{{ g.src | relative_url }}" alt="{{ g.alt | default: g.caption }}" loading="lazy"><figcaption>{{ g.caption }}</figcaption></figure>
+    {%- endfor %}
+  </div>
+  {%- if p.gallery_caption %}<p class="caption">{{ p.gallery_caption }}</p>{% endif %}
+  {%- endif %}
+
+  {%- if p.tools %}
+  <div class="intro">{{ p.content }}</div>
+  <div class="tool-grid">
+    {%- for t in p.tools %}
+    <div class="tool">
+      {%- if t.icon %}
+      <img src="{{ t.icon | relative_url }}" alt="" width="64" height="64">
+      {%- else %}
+      <div class="glyph">{{ t.glyph | default: t.title | slice: 0 }}</div>
+      {%- endif %}
+      <h3>{{ t.title }}</h3>
+      {{ t.text | markdownify }}
+      {%- if t.progress %}<div class="mini-bar"><b style="--p:{{ t.progress }}"></b></div>{% endif %}
+    </div>
+    {%- endfor %}
+  </div>
+  {%- if p.footnote %}<p class="muted center">{{ p.footnote }}</p>{% endif %}
+  <p class="center">
+    <a class="btn" href="{{ repo_url }}">View {{ p.repo }} →</a>
+    <a class="btn ghost" href="{{ repo_url }}/releases">Releases</a>
+  </p>
+  {%- else %}
+  <div class="two-col">
+    <div class="project-body">{{ p.content }}</div>
+    {%- if p.progress %}
+    <div class="progress-panel">
+      <h4>Byte-identical code</h4>
+      <div class="big"><span>{{ p.progress.total }}</span>%</div>
+      <p class="muted">{{ p.progress.note }}</p>
+      <ul class="bars">
+        {%- for b in p.progress.bars %}
+        <li><span title="{{ b.name }}">{{ b.name }}</span><b style="--p:{{ b.pct }}"></b><i>{{ b.pct }}</i></li>
+        {%- endfor %}
+      </ul>
+      <a class="btn" href="{{ repo_url }}">View {{ p.repo }} →</a>
+      <a class="btn ghost" href="{{ repo_url }}/releases">Releases</a>
+    </div>
+    {%- endif %}
+  </div>
+  {%- endif %}
+</section>
+{%- endfor %}
+
+<section class="closing">
+{{ content }}
+</section>
+
+</main>
+
+<footer>
+  {{ page.footer | markdownify }}
+  <p><a href="{{ site.github }}">{{ site.github | remove: 'https://' }}</a></p>
+</footer>
+
+</body>
+</html>
