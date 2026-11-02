@@ -18,7 +18,7 @@ gallery_caption: >-
 # From the Progress table in nolfsrc's README.
 progress:
   total: 84.9
-  note: 17,946 of 19,855 functions · retail GOTY 1.003
+  note: 17,946 of 19,855 functions · retail GOTY 1.004
   bars:
     - { name: NolfServ.exe, pct: 99.2 }
     - { name: Object.lto, pct: 98.9 }
