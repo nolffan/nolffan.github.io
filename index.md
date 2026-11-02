@@ -53,9 +53,21 @@ Found a bug in the original games along the way? Each project keeps a
 
 ## With thanks
 
-**Monolith Productions**, for the games and for releasing their source;
-**LithTech, Inc. / Touchdown Entertainment** for the Jupiter engine;
-[StenApp](https://github.com/StenApp) for an in-depth knowledge of all things
-NOLF and LithTech; **HeyThereCoffeee (haekb)** for the NOLF and NOLF 2
-Modernizers; ChthonVII and Daniel Gibson; [OpenMiles](https://github.com/maci0/openmiles), FFmpeg, Wine, Proton,
-DXVK and OpenSpy; and redump.org and archive.org for keeping the discs.
+1. **Monolith Productions**, for the games, and for releasing their source.
+2. **LithTech, Inc.** (later **Touchdown Entertainment**), for the Jupiter
+   engine.
+3. [**StenApp**](https://github.com/StenApp), for an in-depth knowledge of
+   all things NOLF and LithTech.
+4. **HeyThereCoffeee (haekb)**, for the
+   [NOLF](https://github.com/haekb/nolf1-modernizer) and
+   [NOLF 2](https://github.com/haekb/nolf2-modernizer) Modernizers.
+5. [**ChthonVII**](https://github.com/ChthonVII/nolf1-modernizer) and
+   **Daniel Gibson**, for their Modernizer fixes.
+6. [**OpenSpy**](https://openspy.net), whose master server brings the
+   internet server lists back to life.
+7. [**OpenMiles**](https://github.com/maci0/openmiles), the open
+   reimplementation of the Miles Sound System.
+8. [**FFmpeg**](https://ffmpeg.org), which our Bink player is built on.
+9. **Wine**, **Proton** and **DXVK**, which run the games on Linux and the
+   Steam Deck.
+10. **redump.org** and **archive.org**, for verifying and keeping the discs.
