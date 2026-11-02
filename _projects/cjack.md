@@ -31,6 +31,9 @@ server, sound driver and client effects are all above 99%.
 
 #### Modern build
 
+- Unrestricted frame rates — 240 by default, or unlimited — with AI,
+  movement, vehicles and effects behaving as they do at 60; multiplayer
+  stays at 60
 - Intro movies through our FFmpeg-based Bink player
 - Speech (MP3) decoded in our own `SndDrv.dll` — no codec to install
 - `ContractJack.exe` launches straight into the game; the launcher is
