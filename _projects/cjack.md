@@ -31,6 +31,9 @@ server, sound driver and client effects are all above 99%.
 
 #### Modern build
 
+- Widescreen and FOV
+- XInput controller support
 - High frame rates that play correctly
 - Intro movies through our FFmpeg-based Bink player
 - Speech plays with no codec to install
+- NOLF 2 Modernizer fixes, carried over
