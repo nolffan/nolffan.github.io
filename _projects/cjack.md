@@ -34,4 +34,3 @@ server, sound driver and client effects are all above 99%.
 - High frame rates that play correctly
 - Intro movies through our FFmpeg-based Bink player
 - Speech plays with no codec to install
-- Multiplayer works again

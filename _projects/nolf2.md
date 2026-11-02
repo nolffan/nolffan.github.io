@@ -40,8 +40,7 @@ directory.
 #### Modern build
 
 - Widescreen and FOV, up to 8× AA and 16× AF
-- XInput controllers; A skips cut-scenes
+- XInput controller support
 - High frame rates that play correctly
 - Our own Bink player on FFmpeg — no RAD binaries
 - NOLF 2 Modernizer fixes, reimplemented in source
-- Multiplayer works again
