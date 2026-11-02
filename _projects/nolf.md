@@ -44,13 +44,8 @@ reconstructed from the retail DLLs.
 
 - Direct3D 9 renderer, widescreen, AA and anisotropic filtering
 - XInput controller support
-- Unrestricted frame rates — 240 by default, or unlimited, in single
-  player and multiplayer — with animation, physics and rate of fire the
-  same at any of them
-- [OpenMiles](https://github.com/maci0/openmiles) and an FFmpeg-based Bink player replace proprietary middleware
+- High frame rates that play correctly
+- Open-source audio and video, with [OpenMiles](https://github.com/maci0/openmiles) and FFmpeg
 - Fixes and features from the NOLF Modernizer, reimplemented in source
 - Bundled DirectMusic, so the music plays under Wine and Proton
-- Multiplayer restored: GameSpy's master server is long gone, so the game
-  now talks to [OpenSpy](https://openspy.net)'s instead — the internet
-  server list works again and servers can advertise. Servers also check
-  passwords themselves and no longer crash on a `%` in a name
+- Multiplayer backed by [OpenSpy](https://openspy.net)

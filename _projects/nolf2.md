@@ -39,14 +39,9 @@ directory.
 
 #### Modern build
 
-- Widescreen with field of view, up to 8× AA and 16× AF, DPI-aware
+- Widescreen and FOV, up to 8× AA and 16× AF
 - XInput controllers; A skips cut-scenes
-- Unrestricted frame rates — 240 by default, up to 300 or unlimited — with
-  AI, movement, weather and effects behaving as they do at 60;
-  multiplayer stays at 60
+- High frame rates that play correctly
 - Our own Bink player on FFmpeg — no RAD binaries
 - NOLF 2 Modernizer fixes, reimplemented in source
-- Multiplayer restored: with Sierra's CD-key servers gone, retail can no
-  longer join an Internet server or one by address; the modern build drops
-  the key check so those work again, and servers are hardened against
-  crashes
+- Multiplayer works again

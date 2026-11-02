@@ -31,11 +31,7 @@ server, sound driver and client effects are all above 99%.
 
 #### Modern build
 
-- Unrestricted frame rates — 240 by default, or unlimited — with AI,
-  movement, vehicles and effects behaving as they do at 60; multiplayer
-  stays at 60
+- High frame rates that play correctly
 - Intro movies through our FFmpeg-based Bink player
-- Speech (MP3) decoded in our own `SndDrv.dll` — no codec to install
-- Multiplayer without GameSpy's dead CD-key servers, so clients can join
-  again; the Internet server list, through
-  [OpenSpy](https://openspy.net), is to come
+- Speech plays with no codec to install
+- Multiplayer works again
