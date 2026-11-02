@@ -2,7 +2,7 @@
 order: 3
 slug: cjack
 title: Contract J.A.C.K.
-subtitle: Between NOLF and NOLF 2 · version 1.1 (Europe) · 2003
+subtitle: A prequel to NOLF 2 · version 1.1 (Europe) · 2003
 repo: cjacksrc
 
 # From the Progress table in cjacksrc's README.
