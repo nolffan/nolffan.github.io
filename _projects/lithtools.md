@@ -5,6 +5,17 @@ title: lithtools
 subtitle: Tools for the LithTech games and their files
 repo: lithtools
 
+# `gallery_uncropped: true` shows the screenshots whole, instead of cropped
+# to 16:9 as the game screenshots are: these are of applications.
+gallery_uncropped: true
+gallery:
+  - src: /img/lithtools-lithrez-studio.png
+    caption: LithRez Studio
+    alt: "LithRez Studio: No One Lives Forever 2's GAME.REZ open, previewing Cate Archer's model with its pieces, sockets and skins"
+  - src: /img/lithtools-blender.png
+    caption: The Blender extension
+    alt: "Blender: No One Lives Forever 2's mime model imported with its LODs, and the LithTech Animations panel"
+
 # A project with `tools` is shown as a grid of cards instead of the
 # progress panel. Each card shows `icon` (an image) or else `glyph` (a
 # letter); `progress` adds a bar.

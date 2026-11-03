@@ -61,7 +61,7 @@
   </div>
 
   {%- if p.gallery %}
-  <div class="gallery{% if p.gallery.size == 2 %} two{% endif %}">
+  <div class="gallery{% if p.gallery.size == 2 %} two{% endif %}{% if p.gallery_uncropped %} uncropped{% endif %}">
     {%- for g in p.gallery %}
     <figure><img src="{{ g.src | relative_url }}" alt="{{ g.alt | default: g.caption }}" loading="lazy"><figcaption>{{ g.caption }}</figcaption></figure>
     {%- endfor %}
