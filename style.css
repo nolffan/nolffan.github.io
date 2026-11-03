@@ -179,7 +179,7 @@ main > section > * { max-width: 1100px; margin-left: auto; margin-right: auto; }
 
 /* ---------- lithtools ---------- */
 .intro { font-size: 1.1rem; }
-.gallery + .intro { margin-top: 36px; }
+.gallery + .intro { margin-top: 56px; }
 .intro p { max-width: 760px; margin: 0; }
 .tool-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin: 32px auto; }
 .tool { background: var(--card); border: 1px solid var(--line); border-radius: 4px; padding: 22px; }
