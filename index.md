@@ -18,13 +18,11 @@ approach:
       text: >-
         Each function is written so the period compiler — Visual C++ 6,
         .NET 2003, Intel C/C++ — turns it into exactly the retail machine
-        code. A scoreboard checks every one, and the build fails if a
-        matching function ever stops matching.
+        code.
     - title: Two builds
       text: >-
         **Legacy** is the game as it shipped, bugs and all — a faithful
-        record. **Modern** is the same source with fixes and new features,
-        kept behind a define so the legacy build keeps matching.
+        record. **Modern** is the same source with fixes and new features.
     - title: No game data
       text: >-
         The repositories contain source only. Public releases come with
