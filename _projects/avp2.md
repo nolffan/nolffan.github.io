@@ -14,6 +14,10 @@ gallery:
   - { src: /img/avp2-space-ship.jpg, caption: "The USS Verloc", alt: "The opening of the Marine campaign: the USS Verloc approaches the orbit of LV-1201" }
   - { src: /img/avp2-marine.jpg, caption: "The Marine campaign", alt: "The Marine campaign: marines outside a building in a canyon at night" }
   - { src: /img/avp2-predator.jpg, caption: "The Predator campaign", alt: "The Predator campaign, seen through a vision mode of the Predator" }
+  - { src: /img/avp2ph-alien-1.jpg, caption: "Primal Hunt: the Alien campaign", alt: "Primal Hunt's Alien campaign: an alien in a hive, with more beyond" }
+  - { src: /img/avp2ph-alien-2.jpg, caption: "Primal Hunt: the Alien campaign", alt: "Primal Hunt's Alien campaign: aliens in a corridor, seen through the Alien's vision" }
+  - { src: /img/avp2ph-corporate-1.jpg, caption: "Primal Hunt: the Corporate campaign", alt: "Primal Hunt's Corporate campaign: a soldier fires a flamethrower down a corridor" }
+  - { src: /img/avp2ph-corporate-2.jpg, caption: "Primal Hunt: the Corporate campaign", alt: "Primal Hunt's Corporate campaign: soldiers fight aliens with flamethrowers" }
 
 # From the table in avp2src's progress/README.md.
 progress:
