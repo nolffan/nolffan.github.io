@@ -8,6 +8,16 @@ repo: cjacksrc
 status: Playable
 status_kind: good
 
+gallery:
+  - { src: /img/cjack-00-main-menu.jpg, caption: "The main menu", alt: "The main menu" }
+  - { src: /img/cjack-01-scene-one.jpg, caption: "The first mission", alt: "Two mobsters in a hotel room: 'Shut your hole before I shovel dirt in it, Marvin.'" }
+  - { src: /img/cjack-02-shooting.jpg, caption: "A shoot-out", alt: "A shoot-out with mobsters in a hotel apartment, seen over a Tommy gun" }
+  - { src: /img/cjack-03-car.jpg, caption: "The garage", alt: "A car in a garage, seen over a Tommy gun" }
+  - { src: /img/cjack-04-malta.jpg, caption: "Malta", alt: "Ruins in Malta, seen over a pistol" }
+  - { src: /img/cjack-05-dimitri.jpg, caption: "A job offer", alt: "A cut-scene: 'Bravo. You've passed the test. Now, then, I have a job for you.'" }
+  - { src: /img/cjack-06-damage.jpg, caption: "In the snow", alt: "A firefight among shipping containers in the snow, seen over a pistol" }
+  - { src: /img/cjack-07-machine-gun.jpg, caption: "The rail yard", alt: "A snowy rail yard at night, seen over a submachine gun" }
+
 # From the Progress table in cjacksrc's README.
 progress:
   total: 96.4
