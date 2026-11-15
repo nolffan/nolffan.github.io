@@ -10,14 +10,10 @@ progress:
   total: 96.4
   note: 27,763 of 29,566 functions · retail 1.1
   bars:
-    - { name: ClientFx.fxd, pct: 99.9 }
-    - { name: SndDrv.dll, pct: 99.7 }
     - { name: ContractJack.exe, pct: 99.2 }
-    - { name: ContractJackServer.exe, pct: 99.0 }
     - { name: server.dll, pct: 97.2 }
     - { name: Object.lto, pct: 96.9 }
     - { name: Lithtech.exe, pct: 96.7 }
-    - { name: GameSpy.dll, pct: 95.3 }
     - { name: CShell.dll, pct: 94.4 }
 ---
 

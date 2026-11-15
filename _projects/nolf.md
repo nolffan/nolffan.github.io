@@ -20,11 +20,9 @@ progress:
   total: 84.9
   note: 17,946 of 19,855 functions · retail GOTY 1.004
   bars:
-    - { name: NolfServ.exe, pct: 99.2 }
     - { name: Object.lto, pct: 98.9 }
     - { name: CShell.dll, pct: 98.8 }
     - { name: NOLF.exe, pct: 98.0 }
-    - { name: libraries, pct: 97.7 }
     - { name: server.dll, pct: 85.5 }
     - { name: lithtech.exe, pct: 77.8 }
     - { name: d3d.ren, pct: 28.3 }

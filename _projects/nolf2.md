@@ -15,11 +15,7 @@ progress:
   total: 98.1
   note: 29,261 of 32,894 functions · retail 1.3, engine included
   bars:
-    - { name: ClientFx.fxd, pct: 100 }
-    - { name: ServerDir.dll, pct: 99.5 }
     - { name: CShell.dll, pct: 99.0 }
-    - { name: snddrv.dll, pct: 98.8 }
-    - { name: NOLF2Srv.exe, pct: 98.8 }
     - { name: NOLF2.exe, pct: 98.7 }
     - { name: Object.lto, pct: 98.7 }
     - { name: server.dll, pct: 97.5 }

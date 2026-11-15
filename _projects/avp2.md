@@ -12,11 +12,11 @@ progress:
   total: 91.7
   note: 50,472 of 55,918 functions · AvP2 1.0.9.6 and Primal Hunt 1.0.2.2
   bars:
-    - { name: AVP2Serv.exe, pct: 99.6 }
     - { name: PrimalHunt.exe, pct: 99.3 }
     - { name: CShell.dll, pct: 98.6 }
     - { name: Object.lto, pct: 98.2 }
     - { name: PHObject.lto, pct: 95.2 }
+    - { name: AVP2.exe, pct: 94.6 }
     - { name: PHCShell.dll, pct: 94.4 }
     - { name: server.dll, pct: 84.6 }
     - { name: lithtech.exe, pct: 79.0 }

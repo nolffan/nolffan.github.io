@@ -13,13 +13,10 @@ progress:
   note: 26,340 of 37,327 functions · retail Update 2
   bars:
     - { name: Tron.exe, pct: 99.0 }
-    - { name: SndDrv.dll, pct: 98.7 }
     - { name: server.dll, pct: 97.4 }
     - { name: Lithtech.exe, pct: 95.7 }
-    - { name: TRONSrv.exe, pct: 93.1 }
     - { name: CShell.dll, pct: 56.0 }
     - { name: Object.lto, pct: 48.6 }
-    - { name: ClientFx.fxd, pct: 45.7 }
 ---
 
 Monolith never released Tron 2.0's source. It was built from the same tree
