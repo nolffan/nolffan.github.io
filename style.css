@@ -12,6 +12,7 @@
   --hero-a: #e2561c;
   --hero-b: #c23b16;
   --code-bg: #e9dfcd;
+  --good: #2e7d32;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -27,12 +28,14 @@
     --hero-a: #b8441a;
     --hero-b: #6e230b;
     --code-bg: #2b3036;
+    --good: #5cc46a;
   }
 }
 :root[data-theme="dark"] {
   --bg: #17191c; --bg-alt: #1e2125; --ink: #ece6dc; --muted: #a39a8e;
   --accent: #ff7a3d; --accent-2: #3fb8c0; --card: #23272c; --line: #353a41;
   --bar-bg: #2f343b; --hero-a: #b8441a; --hero-b: #6e230b; --code-bg: #2b3036;
+  --good: #5cc46a;
 }
 
 * { box-sizing: border-box; }
@@ -128,6 +131,7 @@ main > section > * { max-width: 1100px; margin-left: auto; margin-right: auto; }
   font: 600 .72rem/1 "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: .16em;
   color: var(--accent); border: 2px solid var(--accent); border-radius: 2px;
 }
+.stamp.good { color: var(--good); border-color: var(--good); }
 
 .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
 .gallery.two { grid-template-columns: repeat(2, 1fr); }

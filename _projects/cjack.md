@@ -4,6 +4,8 @@ slug: cjack
 title: Contract J.A.C.K.
 subtitle: A prequel to NOLF 2 · version 1.1 (Europe) · 2003
 repo: cjacksrc
+status: Playable
+status_kind: good
 
 # From the Progress table in cjacksrc's README.
 progress:

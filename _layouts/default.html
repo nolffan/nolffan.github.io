@@ -62,7 +62,7 @@
     <div class="title-row">
       <h2>{{ p.title }}</h2>
       {%- if p.status %}
-      <p class="stamp">{{ p.status }}</p>
+      <p class="stamp{% if p.status_kind %} {{ p.status_kind }}{% endif %}">{{ p.status }}</p>
       {%- endif %}
     </div>
     <p class="sub">{{ p.subtitle }} · <a href="{{ repo_url }}">nolffan/{{ p.repo }}</a></p>

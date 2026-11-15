@@ -5,6 +5,8 @@ nav: NOLF
 title: No One Lives Forever
 subtitle: The Operative · Game of the Year Edition · 2000/2001
 repo: nolfsrc
+status: Playable
+status_kind: good
 
 gallery:
   - { src: /img/nolf-01-main-menu.jpg, caption: The main menu }
