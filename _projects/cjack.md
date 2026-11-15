@@ -24,9 +24,6 @@ was built from the same tree as NOLF 2 — so this project starts from NOLF 2's
 game source and the LithTech Jupiter engine, and brings each function to what
 the retail binaries are, compiled with Visual C++ .NET 2003 under Wine.
 
-Already well along: the launcher, dedicated server, sound driver and client
-effects are all above 99%.
-
 #### Modern build
 
 - Widescreen and FOV

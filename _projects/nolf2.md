@@ -25,9 +25,7 @@ progress:
 ---
 
 The game code is Monolith's public source release of 1.3, the game's last
-update, compiled with Visual C++ 6 SP5 as retail was. Where the release
-differs from what actually shipped, the retail code is reconstructed in place
-and marked `RETAIL:`.
+update, compiled with Visual C++ 6 SP5 as retail was.
 
 The engine — `Lithtech.exe` and `server.dll` — is built from the 2006
 LithTech Jupiter source, back-ported to 2002. The sound driver and message DLL

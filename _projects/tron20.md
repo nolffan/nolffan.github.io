@@ -25,8 +25,6 @@ code in the 2006 LithTech Jupiter distribution, and our NOLF 2 engine — and
 brings each function to what the retail binaries are, compiled with Visual
 C++ 6 under Wine.
 
-The engine is already well along; the game code is where the work is now.
-
 #### Planned for the modern build
 
 - Widescreen and FOV, up to 8× AA and 16× AF
