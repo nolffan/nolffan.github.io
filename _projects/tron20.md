@@ -4,6 +4,7 @@ slug: tron20
 nav: Tron 2.0
 title: Tron 2.0
 subtitle: Update 2 (v1.030) · 2003
+engine: LithTech Jupiter
 repo: tron20src
 status: Work in progress · not yet playable
 

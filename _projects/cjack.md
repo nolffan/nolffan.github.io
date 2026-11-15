@@ -3,6 +3,7 @@ order: 4
 slug: cjack
 title: Contract J.A.C.K.
 subtitle: A prequel to NOLF 2 · version 1.1 (Europe) · 2003
+engine: LithTech Jupiter
 repo: cjacksrc
 status: Playable
 status_kind: good

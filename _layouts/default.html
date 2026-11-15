@@ -65,7 +65,12 @@
       <p class="stamp{% if p.status_kind %} {{ p.status_kind }}{% endif %}">{{ p.status }}</p>
       {%- endif %}
     </div>
-    <p class="sub">{{ p.subtitle }} · <a href="{{ repo_url }}">nolffan/{{ p.repo }}</a></p>
+    <div class="sub-row">
+      <p class="sub">{{ p.subtitle }} · <a href="{{ repo_url }}">nolffan/{{ p.repo }}</a></p>
+      {%- if p.engine %}
+      <p class="engine">{{ p.engine }}</p>
+      {%- endif %}
+    </div>
   </div>
 
   {%- if p.gallery %}

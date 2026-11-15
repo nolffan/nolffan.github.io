@@ -4,6 +4,7 @@ slug: avp2
 nav: AvP2
 title: Aliens versus Predator 2
 subtitle: With the Primal Hunt expansion · 2001/2002
+engine: LithTech Talon
 repo: avp2src
 status: Work in progress · playable
 
@@ -28,10 +29,10 @@ Hunt — each with its own engine, launcher, dedicated server and game DLLs,
 compiled from source with the Visual C++ 6 builds that made them.
 
 Monolith released AvP2's game code, but never the engine, and Primal Hunt's
-code was never released at all. AvP2 runs on the same LithTech "Talon"
-engine as NOLF, so its engine starts from our NOLF reconstruction, and
-Primal Hunt's game code from Monolith's AvP2 source, each brought to what
-the retail binaries are, function by function.
+code was never released at all. AvP2's engine grew out of NOLF's, so it
+starts from our NOLF reconstruction, and Primal Hunt's game code from
+Monolith's AvP2 source, each brought to what the retail binaries are,
+function by function.
 
 #### Modern build
 

@@ -4,6 +4,7 @@ slug: nolf2
 nav: NOLF 2
 title: No One Lives Forever 2
 subtitle: A Spy in H.A.R.M.'s Way · version 1.3 · 2002
+engine: LithTech Jupiter
 repo: nolf2src
 status: Playable
 status_kind: good
