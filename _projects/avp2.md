@@ -9,6 +9,12 @@ repo: avp2src
 status: Work in progress · playable
 status_kind: warn
 
+gallery:
+  - { src: /img/avp2-main-menu.jpg, caption: "The main menu", alt: "The main menu of Aliens versus Predator 2" }
+  - { src: /img/avp2-space-ship.jpg, caption: "The USS Verloc", alt: "The opening of the Marine campaign: the USS Verloc approaches the orbit of LV-1201" }
+  - { src: /img/avp2-marine.jpg, caption: "The Marine campaign", alt: "The Marine campaign: marines outside a building in a canyon at night" }
+  - { src: /img/avp2-predator.jpg, caption: "The Predator campaign", alt: "The Predator campaign, seen through a vision mode of the Predator" }
+
 # From the table in avp2src's progress/README.md.
 progress:
   total: 91.7
