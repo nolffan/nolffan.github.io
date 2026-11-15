@@ -59,11 +59,13 @@
   <div class="project-head">
     {%- assign n = p.order | minus: 1 %}
     <span class="file-no">File {% if n < 10 %}0{% endif %}{{ n }}</span>
-    <h2>{{ p.title }}</h2>
+    <div class="title-row">
+      <h2>{{ p.title }}</h2>
+      {%- if p.status %}
+      <p class="stamp">{{ p.status }}</p>
+      {%- endif %}
+    </div>
     <p class="sub">{{ p.subtitle }} · <a href="{{ repo_url }}">nolffan/{{ p.repo }}</a></p>
-    {%- if p.status %}
-    <p class="stamp">{{ p.status }}</p>
-    {%- endif %}
   </div>
 
   {%- if p.gallery %}
