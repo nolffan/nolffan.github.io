@@ -7,6 +7,7 @@ subtitle: Update 2 (v1.030) · 2003
 engine: LithTech Jupiter
 repo: tron20src
 status: Work in progress · not yet playable
+status_kind: bad
 
 # From the table in tron20src's progress/README.md.
 progress:

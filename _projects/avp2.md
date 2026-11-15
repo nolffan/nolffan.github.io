@@ -7,6 +7,7 @@ subtitle: With the Primal Hunt expansion · 2001/2002
 engine: LithTech Talon
 repo: avp2src
 status: Work in progress · playable
+status_kind: warn
 
 # From the table in avp2src's progress/README.md.
 progress:
