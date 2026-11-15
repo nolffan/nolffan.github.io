@@ -98,6 +98,14 @@
     </div>
     {%- endfor %}
   </div>
+  {%- if p.formats %}
+  <h4 class="formats-title">{{ p.formats_title | default: 'File formats' }}</h4>
+  <ul class="formats">
+    {%- for f in p.formats %}
+    <li><code>{{ f.ext }}</code><span>{{ f.name }}</span></li>
+    {%- endfor %}
+  </ul>
+  {%- endif %}
   {%- if p.footnote %}<p class="muted center">{{ p.footnote }}</p>{% endif %}
   <p class="center">
     <a class="btn" href="{{ repo_url }}">View {{ p.repo }} →</a>

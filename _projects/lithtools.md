@@ -31,13 +31,13 @@ tools:
     text: >-
       A command-line tool whose classic commands behave like Monolith's
       LITHREZ and write byte-identical `.rez` archives; and a Qt 6 successor
-      to WinRez LT Studio with texture, model and sound previews and a
-      string-table editor. Linux, macOS and Windows.
+      to WinRez LT Studio that previews every format below. Linux, macOS and
+      Windows.
   - title: Blender extension
     glyph: B
     text: >-
       Imports and exports LithTech models — `.abc`, `.ltb` and the PS2's
-      `.ltb` — and DTX textures.
+      `.ltb`, back to LithTech 1's Shogo and Blood 2 — and DTX textures.
   - title: Talon tools, decompiled
     glyph: T
     progress: 56.9
@@ -50,6 +50,25 @@ tools:
     text: >-
       The tools of NOLF 2, Contract J.A.C.K. and Tron 2.0 — DEdit, ModelEdit,
       FxED, the packers — built from Jupiter Build 69's source.
+
+# Shown as a grid under the tool cards.
+formats_title: File formats
+formats:
+  - { ext: .rez, name: "Resource archives, PC and PS2" }
+  - { ext: .dtx, name: Textures }
+  - { ext: .pcx .tga .bmp, name: Images }
+  - { ext: .abc, name: "Models: NOLF, AvP2, LithTech 1" }
+  - { ext: .ltb, name: "Models: NOLF 2, Contract J.A.C.K., Tron 2.0, NOLF on PS2" }
+  - { ext: .ltb, name: Render styles }
+  - { ext: .ps .ash, name: Shaders }
+  - { ext: .spr, name: Sprites }
+  - { ext: .lip, name: Lip-sync }
+  - { ext: .tfs .tfg, name: Texture effects }
+  - { ext: .wav, name: "Sounds: PCM, ADPCM, MP3" }
+  - { ext: .lps, name: PS2 sound banks }
+  - { ext: .but, name: PS2 attribute files }
+  - { ext: .ttf, name: Fonts }
+  - { ext: CRes.dll, name: String tables }
 
 footnote: >-
   Plus an inventory of every public LithTech tools release, and a map of
