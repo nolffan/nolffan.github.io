@@ -4,6 +4,8 @@ slug: lithtools
 title: lithtools
 subtitle: Tools for the LithTech games and their files
 repo: lithtools
+status: Cross-platform
+status_kind: info
 
 # `gallery_uncropped: true` shows the screenshots whole, instead of cropped
 # to 16:9 as the game screenshots are: these are of applications. Each
