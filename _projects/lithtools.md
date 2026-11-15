@@ -6,13 +6,19 @@ subtitle: Tools for the LithTech games and their files
 repo: lithtools
 
 # `gallery_uncropped: true` shows the screenshots whole, instead of cropped
-# to 16:9 as the game screenshots are: these are of applications.
+# to 16:9 as the game screenshots are: these are of applications. Each
+# needs its `width` and `height` (pixels), so all of them are shown at the
+# same height.
 gallery_uncropped: true
 gallery:
   - src: /img/lithtools-lithrez-studio.png
+    width: 1331
+    height: 913
     caption: LithRez Studio
     alt: "LithRez Studio: No One Lives Forever 2's GAME.REZ open, previewing Cate Archer's model with its pieces, sockets and skins"
   - src: /img/lithtools-blender.png
+    width: 1628
+    height: 1044
     caption: The Blender extension
     alt: "Blender: No One Lives Forever 2's mime model imported with its LODs, and the LithTech Animations panel"
 

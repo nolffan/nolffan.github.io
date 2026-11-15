@@ -66,7 +66,7 @@
   {%- if p.gallery %}
   <div class="gallery{% if p.gallery.size == 2 %} two{% endif %}{% if p.gallery_uncropped %} uncropped{% endif %}">
     {%- for g in p.gallery %}
-    <figure><img src="{{ g.src | relative_url }}" alt="{{ g.alt | default: g.caption }}" loading="lazy"><figcaption>{{ g.caption }}</figcaption></figure>
+    <figure{% if p.gallery_uncropped and g.width %} style="flex-grow: {{ g.width | times: 1.0 | divided_by: g.height | round: 4 }}"{% endif %}><img src="{{ g.src | relative_url }}" alt="{{ g.alt | default: g.caption }}"{% if g.width %} width="{{ g.width }}" height="{{ g.height }}"{% endif %} loading="lazy"><figcaption>{{ g.caption }}</figcaption></figure>
     {%- endfor %}
   </div>
   {%- if p.gallery_caption %}<p class="caption">{{ p.gallery_caption }}</p>{% endif %}
