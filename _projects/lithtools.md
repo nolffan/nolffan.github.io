@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 6
 slug: lithtools
 title: lithtools
 subtitle: Tools for the LithTech games and their files

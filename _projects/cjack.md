@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 4
 slug: cjack
 title: Contract J.A.C.K.
 subtitle: A prequel to NOLF 2 · version 1.1 (Europe) · 2003
@@ -26,8 +26,8 @@ was built from the same tree as NOLF 2 — so this project starts from NOLF 2's
 game source and the LithTech Jupiter engine, and brings each function to what
 the retail binaries are, compiled with Visual C++ .NET 2003 under Wine.
 
-The newest of the three, and already well along: the launcher, dedicated
-server, sound driver and client effects are all above 99%.
+Already well along: the launcher, dedicated server, sound driver and client
+effects are all above 99%.
 
 #### Modern build
 

@@ -58,6 +58,9 @@
     <span class="file-no">File {% if p.order < 10 %}0{% endif %}{{ p.order }}</span>
     <h2>{{ p.title }}</h2>
     <p class="sub">{{ p.subtitle }} · <a href="{{ repo_url }}">nolffan/{{ p.repo }}</a></p>
+    {%- if p.status %}
+    <p class="stamp">{{ p.status }}</p>
+    {%- endif %}
   </div>
 
   {%- if p.gallery %}

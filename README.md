@@ -1,8 +1,10 @@
 # nolffan.github.io
 
 The project site for [nolfsrc](https://github.com/nolffan/nolfsrc),
+[avp2src](https://github.com/nolffan/avp2src),
 [nolf2src](https://github.com/nolffan/nolf2src),
-[cjacksrc](https://github.com/nolffan/cjacksrc) and
+[cjacksrc](https://github.com/nolffan/cjacksrc),
+[tron20src](https://github.com/nolffan/tron20src) and
 [lithtools](https://github.com/nolffan/lithtools).
 
 A [Jekyll](https://jekyllrb.com) site: GitHub Pages builds it from this
