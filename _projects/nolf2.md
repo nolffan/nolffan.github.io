@@ -10,8 +10,14 @@ status: Playable
 status_kind: good
 
 gallery:
-  - { src: /img/nolf2-menu.png, caption: The main menu, alt: "The main menu, running from this build" }
-  - { src: /img/nolf2-ingame.png, caption: In game, alt: "In game, running from this build" }
+  - { src: /img/nolf2-00-main-menu.jpg, caption: "The main menu", alt: "The main menu" }
+  - { src: /img/nolf2-01-ninja.jpg, caption: "Japan", alt: "A ninja runs across a Japanese courtyard at night, seen over a crossbow" }
+  - { src: /img/nolf2-02-hurricane.jpg, caption: "Serenity Valley", alt: "A cut-scene: the Serenity Valley trailer court sign under a storm sky" }
+  - { src: /img/nolf2-03-katana-fight.jpg, caption: "Isako", alt: "A katana fight with Isako in a trailer" }
+  - { src: /img/nolf2-04-kate.jpg, caption: "Oh, hello, Cate", alt: "A cut-scene in a night street: Oh, hello, Cate." }
+  - { src: /img/nolf2-05-unity.jpg, caption: "UNITY headquarters", alt: "A cut-scene: a briefing at UNITY headquarters" }
+  - { src: /img/nolf2-06-lava.jpg, caption: "The lava cave", alt: "A cut-scene: catwalks over a lava cave" }
+  - { src: /img/nolf2-07-india.jpg, caption: "Calcutta", alt: "A street in Calcutta, seen over a pistol" }
 
 # From the Progress table in nolf2src's README.
 progress:
