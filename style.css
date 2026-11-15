@@ -85,7 +85,7 @@ h4 { font: 600 .78rem/1 "IBM Plex Mono", monospace; text-transform: uppercase; l
 .topnav .links { display: flex; gap: 18px; flex-wrap: wrap; }
 .topnav .links a { color: #fff8ee; text-decoration: none; font-size: .9rem; font-weight: 600; opacity: .85; }
 .topnav .links a:hover { opacity: 1; text-decoration: underline; }
-.hero-inner { max-width: 1100px; margin: 0 auto; padding-top: 56px; }
+.hero-inner { max-width: 1100px; margin: 0 auto; padding-top: 28px; }
 @media (max-width: 760px) { .hero-inner { padding-top: 16px; } }   /* the nav wraps to several lines there */
 .kicker {
   display: inline-block; font: 600 .75rem/1 "IBM Plex Mono", monospace;
