@@ -25,3 +25,4 @@ exclude:
   - Gemfile.lock
   - Makefile
   - vendor
+  - tools

@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Binary explorer{% if page.title %}: {{ page.title }}{% endif %} — nolffan</title>
+<meta name="description" content="Each retail binary beside our build of it, function by function, with every identical byte in green.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f4ede0; --panel: #fffaf1; --panel-2: #ebe1cf; --ink: #1d1a17; --muted: #6b6258;
+  --line: #d8cbb4; --accent: #e2561c; --accent-2: #0f7c84;
+  --same: #2e7d32; --same-bg: rgba(46,125,50,.13);
+  --reloc: #8a8f98; --reloc-bg: rgba(120,128,140,.14);
+  --diff: #c0281e; --diff-bg: rgba(192,40,30,.13);
+  --near: #c98a00; --todo: #b8ada0; --crt: #d9cfbf; --gap: rgba(0,0,0,.04);
+  --sel: rgba(15,124,132,.16);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #15171a; --panel: #1d2024; --panel-2: #23272c; --ink: #e8e2d8; --muted: #9a9186;
+    --line: #33383f; --accent: #ff7a3d; --accent-2: #3fb8c0;
+    --same: #5cc46a; --same-bg: rgba(92,196,106,.14);
+    --reloc: #8d939c; --reloc-bg: rgba(141,147,156,.14);
+    --diff: #ff6b5e; --diff-bg: rgba(255,107,94,.14);
+    --near: #e8c045; --todo: #5a544d; --crt: #2e3238; --gap: rgba(255,255,255,.03);
+    --sel: rgba(63,184,192,.18);
+  }
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body { background: var(--bg); color: var(--ink); font: 14px/1.45 Inter, system-ui, sans-serif;
+  display: grid; grid-template-rows: auto auto 1fr; overflow: hidden; }
+a { color: var(--accent-2); }
+code, .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+
+header { display: flex; align-items: center; gap: 18px; padding: 10px 16px; background: var(--panel);
+  border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.brand { font: 400 1.6rem/1 "Bebas Neue", sans-serif; letter-spacing: .04em; color: var(--ink); text-decoration: none; }
+.brand span { color: var(--accent); }
+.brand.project { color: var(--accent-2); }
+#bins { display: flex; gap: 6px; flex-wrap: wrap; }
+#bins button { font: 600 .8rem "IBM Plex Mono", monospace; padding: 6px 10px; border: 1px solid var(--line);
+  background: transparent; color: var(--ink); border-radius: 4px; cursor: pointer; }
+#bins button.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+#summary { margin-left: auto; color: var(--muted); font-size: .85rem; }
+
+#mapbar { padding: 8px 16px 10px; background: var(--panel); border-bottom: 1px solid var(--line); }
+#map { width: 100%; height: 28px; display: block; cursor: pointer; border-radius: 3px; }
+.legend { display: flex; gap: 14px; font-size: .75rem; color: var(--muted); margin-top: 6px; flex-wrap: wrap; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+
+main { display: grid; grid-template-columns: 340px 1fr; min-height: 0; }
+aside { border-right: 1px solid var(--line); display: grid; grid-template-rows: auto auto 1fr; min-height: 0; background: var(--panel); }
+#q { margin: 10px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg);
+  color: var(--ink); font: 13px "IBM Plex Mono", monospace; }
+#filters { display: flex; flex-wrap: wrap; gap: 4px 10px; padding: 0 10px 8px; font-size: .78rem; color: var(--muted);
+  border-bottom: 1px solid var(--line); }
+#filters label { cursor: pointer; white-space: nowrap; }
+#list { overflow-y: auto; position: relative; }
+#list .row { position: absolute; left: 0; right: 0; height: 26px; display: grid;
+  grid-template-columns: 74px 1fr 38px; gap: 8px; align-items: center; padding: 0 10px; cursor: pointer;
+  font: 12px "IBM Plex Mono", monospace; border-left: 3px solid transparent; }
+#list .row:hover { background: var(--panel-2); }
+#list .row.sel { background: var(--sel); border-left-color: var(--accent-2); }
+#list .addr { color: var(--muted); }
+#list .name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#list .pct { text-align: right; font-weight: 600; }
+
+#view { overflow: auto; min-height: 0; }
+#fhead { position: sticky; top: 0; z-index: 2; background: var(--bg); padding: 14px 18px 10px; border-bottom: 1px solid var(--line); }
+#fhead h1 { font: 600 1.05rem "IBM Plex Mono", monospace; margin: 0 0 4px; word-break: break-all; }
+#fhead .sig { color: var(--muted); font: 12px "IBM Plex Mono", monospace; word-break: break-all; }
+#fhead .meta { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px; font-size: .82rem; color: var(--muted); align-items: center; }
+.chip { font: 600 .7rem "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: .1em;
+  padding: 3px 7px; border-radius: 3px; border: 1.5px solid currentColor; }
+.st-identical { color: var(--same); } .st-small { color: var(--same); } .st-near { color: var(--near); }
+.st-todo, .st-attempted { color: var(--diff); } .st-crt, .st-middleware, .st-encrypted { color: var(--muted); }
+.big { font: 400 1.6rem/1 "Bebas Neue", sans-serif; color: var(--ink); }
+
+table.asm { border-collapse: collapse; width: 100%; font: 12px/1.6 "IBM Plex Mono", monospace; table-layout: fixed; }
+table.asm th { position: sticky; top: var(--hh, 96px); z-index: 1; background: var(--panel-2); text-align: left;
+  font: 600 .72rem Inter, sans-serif; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); padding: 6px 8px; }
+table.asm td { padding: 0 8px; white-space: pre; overflow: hidden; text-overflow: ellipsis; vertical-align: top; }
+table.asm col.a { width: 84px; } table.asm col.b { width: 15%; } table.asm col.sep { width: 2px; }
+td.sep { background: var(--line); padding: 0 !important; }
+td.a { color: var(--muted); }
+td.i .n { color: var(--muted); }
+tr.same td.i { color: var(--ink); }
+tr.diff { background: var(--diff-bg); }
+tr.gapr td.l, tr.gapl td.r { background: var(--gap); }
+td.r.o { cursor: pointer; }
+tr:hover td.r.o { text-decoration: underline dotted var(--accent-2); }
+b.s { color: var(--same); font-weight: 600; } b.r { color: var(--reloc); font-weight: 400; } b.d { color: var(--diff); font-weight: 600; }
+b.s, b.r, b.d { font-style: normal; }
+.empty { padding: 40px; color: var(--muted); text-align: center; }
+.only { padding: 10px 18px; color: var(--muted); font-size: .85rem; }
+#tip { position: fixed; pointer-events: none; background: var(--ink); color: var(--bg); font: 12px "IBM Plex Mono", monospace;
+  padding: 5px 8px; border-radius: 3px; display: none; z-index: 10; max-width: 60vw; }
+@media (max-width: 860px) {
+  main { grid-template-columns: 1fr; grid-template-rows: 40vh 1fr; }
+  aside { border-right: 0; border-bottom: 1px solid var(--line); }
+}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="{{ '/' | relative_url }}">nolffan</a> <a class="brand" href="{{ '/explorer/' | relative_url }}"><span>binary explorer</span></a>{% if page.project %} <a class="brand project" href="https://github.com/nolffan/{{ page.project }}" title="nolffan/{{ page.project }} on GitHub">{{ page.project }}</a>{% endif %}
+  <div id="bins"></div>
+  <div id="summary"></div>
+</header>
+<div id="mapbar">
+  <canvas id="map"></canvas>
+  <div class="legend">
+    <span><i style="background:var(--same)"></i>identical</span>
+    <span><i style="background:var(--near)"></i>near (shade = bytes that agree)</span>
+    <span><i style="background:var(--diff)"></i>not written yet</span>
+    <span><i style="background:var(--crt)"></i>runtime, libraries</span>
+    <span style="margin-left:auto">Bytes: <b class="s" style="font-family:'IBM Plex Mono'">identical</b> · <b class="r" style="font-family:'IBM Plex Mono'">filled in by the linker</b> · <b class="d" style="font-family:'IBM Plex Mono'">different</b></span>
+  </div>
+</div>
+<main>
+  <aside>
+    <input id="q" type="search" placeholder="Search symbols or addresses…" autocomplete="off" spellcheck="false">
+    <div id="filters"></div>
+    <div id="list"></div>
+  </aside>
+  <section id="view"><div class="empty">Loading…</div></section>
+</main>
+<div id="tip"></div>
+
+<script>
+(() => {
+const PROJECT = {{ page.project | jsonify }};
+const BASE = "data/";
+const ROW = 26;
+const STATUSES = [
+  ["identical", "identical", true], ["small", "small", true], ["near", "near", true],
+  ["todo", "todo", true], ["attempted", "attempted", true],
+  ["crt", "runtime", false], ["middleware", "middleware", false], ["encrypted", "encrypted", false],
+];
+const $ = id => document.getElementById(id);
+const hex = n => "0x" + n.toString(16);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+
+let manifest, bin, fns = [], shown = [], sel = null, chunks = {};
+const enabled = Object.fromEntries(STATUSES.map(([k, , on]) => [k, on]));
+
+async function json(p) {
+  // The data files are gzipped (p + ".gz"); manifest.json is not. A server
+  // may already have unpacked one (Content-Encoding), so look before unpacking.
+  const gz = p !== "manifest.json";
+  const r = await fetch(BASE + p + (gz ? ".gz" : ""));
+  if (!r.ok) throw new Error(p + ": " + r.status);
+  if (!gz) return r.json();
+  const buf = new Uint8Array(await r.arrayBuffer());
+  if (buf[0] !== 0x1f || buf[1] !== 0x8b) return JSON.parse(new TextDecoder().decode(buf));
+  const text = await new Response(new Blob([buf]).stream().pipeThrough(new DecompressionStream("gzip"))).text();
+  return JSON.parse(text);
+}
+
+async function start() {
+  try { manifest = await json("manifest.json"); }
+  catch (e) { $("view").innerHTML = '<div class="empty">No data for “' + esc(PROJECT) + '” yet: run tools/explorer/gen.py.</div>'; return; }
+  document.title = "Binary explorer: " + manifest.title + " — nolffan";
+  $("bins").innerHTML = manifest.binaries.map(b => '<button data-stem="' + b.stem + '">' + esc(b.label) + "</button>").join("");
+  $("bins").onclick = e => { const s = e.target.dataset.stem; if (s) go(s); };
+  $("filters").innerHTML = STATUSES.map(([k, l]) =>
+    '<label><input type="checkbox" data-k="' + k + '"' + (enabled[k] ? " checked" : "") + "> " + l + "</label>").join("");
+  $("filters").onchange = e => { enabled[e.target.dataset.k] = e.target.checked; filter(); };
+  $("q").oninput = filter;
+  $("list").onscroll = drawList;
+  $("list").onclick = e => { const r = e.target.closest(".row"); if (r) pick(shown[+r.dataset.i]); };
+  window.onresize = () => { drawMap(); drawList(); };
+  window.onhashchange = fromHash;
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", drawMap);
+  fromHash();
+}
+
+function fromHash() {
+  const [stem, a] = location.hash.slice(1).split("/");
+  const hit = stem && manifest.binaries.find(b => b.stem.toLowerCase() === stem.toLowerCase());
+  const s = hit ? hit.stem : manifest.binaries[0].stem;
+  go(s, a ? parseInt(a, 16) : null, true);
+}
+
+async function go(stem, addr, fromhash) {
+  if (!bin || bin.stem !== stem) {
+    bin = await json(stem + "/index.json");
+    bin.stem = stem; fns = bin.functions; chunks = {};
+    document.querySelectorAll("#bins button").forEach(b => b.classList.toggle("on", b.dataset.stem === stem));
+    const m = manifest.binaries.find(b => b.stem === stem);
+    const app = fns.filter(f => !["crt", "middleware", "encrypted"].includes(f.s));
+    const tb = app.reduce((t, f) => t + f.n, 0);
+    const sb = app.reduce((t, f) => t + (f.s === "identical" ? f.n : 0), 0);
+    $("summary").innerHTML = '<span class="mono">' + esc(m.label) + "</span> · " + app.length.toLocaleString() +
+      " functions · <b>" + (100 * sb / tb).toFixed(1) + "%</b> of the code byte-identical · commit " +
+      '<a class="mono" href="https://github.com/' + manifest.github + "/tree/" + manifest.commit + '">' + manifest.commit.slice(0, 7) + "</a>";
+    drawMap(); filter();
+  }
+  let f = addr != null ? fns.find(x => x.a === addr) : null;
+  if (!f) f = shown.find(x => x.s === "near") || shown[0] || fns[0];
+  pick(f, !fromhash);
+}
+
+function matches(f, q) {
+  if (!q) return true;
+  if (/^(0x)?[0-9a-f]+$/.test(q)) {
+    const n = parseInt(q, 16);
+    if (n >= f.a && n < f.a + f.n) return true;
+  }
+  return (f.f + " " + (f.m || "") + " " + (f.u || "")).toLowerCase().includes(q);
+}
+
+function filter() {
+  const q = $("q").value.trim().toLowerCase();
+  shown = fns.filter(f => enabled[f.s] !== false && (enabled[f.s] || !(f.s in enabled)) && matches(f, q));
+  $("list").scrollTop = 0;
+  drawList();
+}
+
+function colour(f) {
+  if (f.s === "identical" || f.s === "small") return css("--same");
+  if (f.s === "near") return mix(css("--diff"), css("--near"), (f.p || 0) / 100);
+  if (f.s === "todo" || f.s === "attempted") return css("--diff");
+  return css("--crt");
+}
+function mix(a, b, t) {
+  const pa = rgb(a), pb = rgb(b);
+  return "rgb(" + pa.map((v, i) => Math.round(v + (pb[i] - v) * Math.max(0, (t - .5) * 2))).join(",") + ")";
+}
+function rgb(c) { const m = c.match(/[0-9a-f]{2}/gi); return m ? m.slice(0, 3).map(x => parseInt(x, 16)) : [128, 128, 128]; }
+
+function pctLabel(f) {
+  if (f.s === "identical" || f.s === "small") return "100";
+  if (f.p != null) return String(f.p);
+  return f.s === "todo" || f.s === "attempted" ? "—" : "";
+}
+
+function drawList() {
+  const el = $("list"), h = el.clientHeight, top = el.scrollTop;
+  const i0 = Math.max(0, Math.floor(top / ROW) - 10), i1 = Math.min(shown.length, Math.ceil((top + h) / ROW) + 10);
+  let out = '<div style="height:' + shown.length * ROW + 'px"></div>';
+  for (let i = i0; i < i1; i++) {
+    const f = shown[i];
+    out += '<div class="row' + (f === sel ? " sel" : "") + '" data-i="' + i + '" style="top:' + i * ROW + 'px" title="' + esc(f.g || f.f) + '">' +
+      '<span class="addr">' + f.a.toString(16) + '</span><span class="name">' + esc(f.f) + "</span>" +
+      '<span class="pct" style="color:' + colour(f) + '">' + pctLabel(f) + "</span></div>";
+  }
+  el.innerHTML = out;
+}
+
+function drawMap() {
+  if (!fns.length) return;
+  const c = $("map"), dpr = devicePixelRatio || 1, w = c.clientWidth, h = c.clientHeight;
+  c.width = w * dpr; c.height = h * dpr;
+  const g = c.getContext("2d"); g.scale(dpr, dpr);
+  const lo = fns[0].a, hi = fns[fns.length - 1].a + fns[fns.length - 1].n, span = hi - lo;
+  g.fillStyle = css("--panel-2"); g.fillRect(0, 0, w, h);
+  for (const f of fns) {
+    const x = (f.a - lo) / span * w, fw = Math.max(f.n / span * w, .6);
+    g.fillStyle = colour(f); g.fillRect(x, 0, fw, h);
+  }
+  if (sel) {
+    const x = (sel.a - lo) / span * w;
+    g.fillStyle = css("--ink"); g.fillRect(Math.round(x) - 1, 0, 2, h);
+  }
+  c.onclick = e => {
+    const a = lo + (e.offsetX / w) * span;
+    let best = fns[0];
+    for (const f of fns) if (f.a <= a) best = f; else break;
+    pick(best);
+    const i = shown.indexOf(best);
+    if (i >= 0) $("list").scrollTop = i * ROW - $("list").clientHeight / 2;
+  };
+  c.onmousemove = e => {
+    const a = lo + (e.offsetX / w) * span;
+    let best = fns[0];
+    for (const f of fns) if (f.a <= a) best = f; else break;
+    tip(e, hex(best.a) + "  " + best.f + "  " + best.s + (pctLabel(best) ? " " + pctLabel(best) + "%" : ""));
+  };
+  c.onmouseleave = () => tip();
+}
+
+function tip(e, text) {
+  const t = $("tip");
+  if (!e) { t.style.display = "none"; return; }
+  t.textContent = text; t.style.display = "block";
+  t.style.left = Math.min(e.clientX + 12, innerWidth - t.offsetWidth - 8) + "px";
+  t.style.top = (e.clientY + 16) + "px";
+}
+
+async function pick(f, push) {
+  if (!f) return;
+  sel = f;
+  const h = "#" + bin.stem + "/" + f.a.toString(16);
+  if (location.hash !== h) history[push ? "pushState" : "replaceState"](null, "", h);
+  drawList(); drawMap();
+  const key = f.c;
+  if (!chunks[key]) chunks[key] = await json(bin.stem + "/c" + key + ".json");
+  if (sel !== f) return;
+  render(f, chunks[key].find(b => b.a === f.a));
+}
+
+function bytes(hexs, cls, side) {
+  if (!hexs) return "";
+  let out = "";
+  for (let k = 0; k < hexs.length / 2; k++) {
+    const c = cls ? cls[k] || "d" : "";
+    const b = hexs.substr(k * 2, 2);
+    out += (k ? " " : "") + (c ? '<b class="' + c + '">' + b + "</b>" : b);
+  }
+  return out;
+}
+
+function render(f, body) {
+  const src = f.l ? "https://github.com/" + manifest.github + "/blob/" + manifest.commit + "/" + f.l : null;
+  const ours = f.o != null;
+  const pct = pctLabel(f);
+  let head = '<div id="fhead"><h1>' + esc(f.f) + "</h1>" + (f.g ? '<div class="sig">' + esc(f.g) + "</div>" : "") +
+    '<div class="meta"><span class="chip st-' + f.s + '">' + f.s + "</span>" +
+    (pct && pct !== "—" ? '<span><span class="big">' + pct + "%</span> of bytes agree</span>" : "") +
+    '<span class="mono">retail ' + hex(f.a) + " · " + f.n + " bytes</span>" +
+    (ours ? '<span class="mono">ours ' + hex(f.o) + "</span>" : "") +
+    (f.u ? '<span class="mono">' + esc(f.u) + "</span>" : "") +
+    (src ? '<a href="' + src + '" target="_blank" rel="noopener">View our source on GitHub →</a>' : "") +
+    "</div></div>";
+  if (!body) { $("view").innerHTML = head + '<div class="empty">No disassembly.</div>'; return; }
+  let rows = "";
+  for (const r of body.r) {
+    if (r.length <= 4) {
+      rows += '<tr><td class="a l">' + r[0].toString(16) + '</td><td class="b l">' + bytes(r[1]) + '</td><td class="i l">' +
+        esc(r[2]) + (r[3] ? ' <span class="n">; ' + esc(r[3]) + "</span>" : "") + "</td></tr>";
+      continue;
+    }
+    const [ra, rh, rt, rn, oa, oh, ot, on, cls] = r;
+    const diff = cls.includes("d");
+    const k = (diff ? "diff" : "same") + (ra == null ? " gapl" : "") + (oa == null ? " gapr" : "");
+    rows += '<tr class="' + k + '">' +
+      '<td class="a l">' + (ra != null ? ra.toString(16) : "") + '</td><td class="b l">' + bytes(rh, cls) +
+      '</td><td class="i l">' + (rt ? esc(rt) + (rn ? ' <span class="n">; ' + esc(rn) + "</span>" : "") : "") + '</td><td class="sep"></td>' +
+      '<td class="a r o">' + (oa != null ? oa.toString(16) : "") + '</td><td class="b r o">' + bytes(oh, cls) +
+      '</td><td class="i r o">' + (ot ? esc(ot) + (on ? ' <span class="n">; ' + esc(on) + "</span>" : "") : "") + "</td></tr>";
+  }
+  const two = ours && body.r.length && body.r[0].length > 4;
+  const table = two
+    ? '<table class="asm"><colgroup><col class="a"><col class="b"><col><col class="sep"><col class="a"><col class="b"><col></colgroup>' +
+      '<tr><th colspan="3">Retail</th><th class="sep"></th><th colspan="3">Ours' + (src ? " — click a line for the source" : "") + "</th></tr>" + rows + "</table>"
+    : '<div class="only">' + (f.s === "crt" || f.s === "middleware" ? "Runtime or third-party code: not ours to write, so not compared." :
+        f.s === "todo" || f.s === "attempted" ? "Not written yet: the retail code alone." : "No function of ours is paired with this one.") + "</div>" +
+      '<table class="asm"><colgroup><col class="a"><col class="b"><col></colgroup><tr><th colspan="3">Retail</th></tr>' + rows + "</table>";
+  const v = $("view");
+  v.innerHTML = head + table;
+  v.scrollTop = 0;
+  v.style.setProperty("--hh", $("fhead").offsetHeight + "px");
+  v.querySelectorAll("td.o").forEach(td => {
+    if (!src) return;
+    td.onclick = () => window.open(src, "_blank", "noopener");
+    td.onmousemove = e => tip(e, "Open " + f.l.replace("#L", " line ") + " on GitHub");
+    td.onmouseleave = () => tip();
+  });
+}
+
+document.addEventListener("keydown", e => {
+  if (e.target === $("q") && !["ArrowDown", "ArrowUp"].includes(e.key)) return;
+  if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
+  e.preventDefault();
+  const i = shown.indexOf(sel) + (e.key === "ArrowDown" ? 1 : -1);
+  if (i < 0 || i >= shown.length) return;
+  pick(shown[i]);
+  const el = $("list");
+  if (i * ROW < el.scrollTop) el.scrollTop = i * ROW;
+  else if ((i + 1) * ROW > el.scrollTop + el.clientHeight) el.scrollTop = (i + 1) * ROW - el.clientHeight;
+});
+
+start();
+})();
+</script>
+</body>
+</html>
