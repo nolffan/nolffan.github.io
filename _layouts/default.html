@@ -53,9 +53,35 @@
 </section>
 {%- endif %}
 
+{%- if page.explorer and site.data.explorer %}
+<section id="explorer" class="explorer-band">
+  <h2>{{ page.explorer.title }}</h2>
+  <div class="explorer-intro">{{ page.explorer.text | markdownify }}</div>
+  <div class="ex-grid">
+    {%- for p in projects %}
+    {%- assign ex = site.data.explorer[p.repo] %}
+    {%- if ex %}
+    <a class="ex-card" href="{{ '/explorer/' | append: p.repo | append: '/' | relative_url }}">
+      <span class="ex-name">{{ p.nav | default: p.title }}</span>
+      <span class="ex-strip" aria-hidden="true">{% assign cells = ex.strip | split: '' %}{% for c in cells %}<i class="c{{ c }}"></i>{% endfor %}</span>
+      <span class="ex-meta">{{ ex.binaries.size }} binar{% if ex.binaries.size == 1 %}y{% else %}ies{% endif %} · explore →</span>
+    </a>
+    {%- endif %}
+    {%- endfor %}
+  </div>
+</section>
+{%- endif %}
+
+{%- comment %} The sections alternate backgrounds after the approach (the
+darker one): one more section before the projects shifts them by one. {% endcomment %}
+{%- assign shift = 0 %}
+{%- if page.explorer and site.data.explorer %}{% assign shift = 1 %}{% endif %}
 {%- for p in projects %}
+{%- assign k = forloop.index0 | plus: shift | modulo: 2 %}
 {%- assign repo_url = site.github | append: '/' | append: p.repo %}
-<section id="{{ p.slug }}" class="project{% cycle '', ' alt' %}">
+{%- assign ex = site.data.explorer[p.repo] %}
+{%- assign ex_url = '/explorer/' | append: p.repo | append: '/' | relative_url %}
+<section id="{{ p.slug }}" class="project{% if k == 1 %} alt{% endif %}">
   <div class="project-head">
     {%- assign n = p.order | minus: 1 %}
     <span class="file-no">File {% if n < 10 %}0{% endif %}{{ n }}</span>
@@ -110,6 +136,9 @@
   <p class="center">
     <a class="btn" href="{{ repo_url }}">View {{ p.repo }} →</a>
     <a class="btn ghost" href="{{ repo_url }}/releases">Releases</a>
+    {%- if ex %}
+    <a class="btn ghost" href="{{ ex_url }}">Explore the binaries</a>
+    {%- endif %}
   </p>
   {%- else %}
   <div class="two-col">
@@ -121,11 +150,17 @@
       <p class="muted">{{ p.progress.note }}</p>
       <ul class="bars">
         {%- for b in p.progress.bars %}
-        <li><span title="{{ b.name }}">{{ b.name }}</span><b style="--p:{{ b.pct }}"></b><i>{{ b.pct }}</i></li>
+        {%- assign hit = nil %}
+        {%- if ex %}{% assign hit = ex.binaries | where: "label", b.name | first %}{% endif %}
+        <li><span title="{{ b.name }}">{% if hit %}<a href="{{ ex_url }}#{{ hit.stem }}">{{ b.name }}</a>{% else %}{{ b.name }}{% endif %}</span><b style="--p:{{ b.pct }}"></b><i>{{ b.pct }}</i></li>
         {%- endfor %}
       </ul>
-      <a class="btn" href="{{ repo_url }}">View {{ p.repo }} →</a>
-      <a class="btn ghost" href="{{ repo_url }}/releases">Releases</a>
+      <div class="panel-actions">
+        {%- if ex %}
+        <a class="btn wide" href="{{ ex_url }}">Explore the binaries →</a>
+        {%- endif %}
+        <p class="panel-links"><a href="{{ repo_url }}">nolffan/{{ p.repo }}</a><a href="{{ repo_url }}/releases">Releases</a></p>
+      </div>
     </div>
     {%- endif %}
   </div>
@@ -133,7 +168,8 @@
 </section>
 {%- endfor %}
 
-<section class="closing">
+{%- assign k = projects.size | plus: shift | modulo: 2 %}
+<section class="closing{% if k == 1 %} alt{% endif %}">
 {{ content }}
 </section>
 

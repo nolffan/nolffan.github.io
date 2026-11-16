@@ -232,3 +232,27 @@ main > section > * { max-width: 1100px; margin-left: auto; margin-right: auto; }
 footer { background: #1d1a17; color: #c8bfb2; text-align: center; padding: 36px 16px; font-size: .88rem; }
 footer a { color: #ff9a6a; }
 footer p { margin: .4em 0; }
+
+/* ---------- binary explorer ---------- */
+.explorer-band > * { max-width: 1100px; }
+.explorer-intro p { max-width: 720px; margin: 0 0 24px; }
+.ex-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+.ex-card { display: grid; gap: 10px; padding: 16px 18px; background: var(--card); border: 1px solid var(--line);
+  border-top: 4px solid var(--accent); border-radius: 4px; color: var(--ink); text-decoration: none; transition: transform .15s; }
+.ex-card:hover { transform: translateY(-2px); }
+.ex-name { font: 400 1.5rem/1 "Bebas Neue", sans-serif; letter-spacing: .02em; }
+.ex-strip { display: flex; height: 22px; border-radius: 3px; overflow: hidden; background: var(--bar-bg); }
+.ex-strip i { flex: 1; }
+.ex-meta { font: 600 .75rem "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: .1em; color: var(--accent-2); }
+.c0 { background: var(--bad); } .c1 { background: color-mix(in srgb, var(--good) 10%, var(--bad)); }
+.c2 { background: color-mix(in srgb, var(--good) 20%, var(--bad)); } .c3 { background: color-mix(in srgb, var(--good) 30%, var(--warn)); }
+.c4 { background: color-mix(in srgb, var(--good) 40%, var(--warn)); } .c5 { background: color-mix(in srgb, var(--good) 50%, var(--warn)); }
+.c6 { background: color-mix(in srgb, var(--good) 60%, var(--warn)); } .c7 { background: color-mix(in srgb, var(--good) 75%, var(--warn)); }
+.c8 { background: color-mix(in srgb, var(--good) 88%, var(--warn)); } .c9 { background: var(--good); }
+.panel-actions { display: grid; gap: 10px; margin-top: 4px; }
+.btn.wide { display: block; text-align: center; margin: 0; }
+.panel-links { display: flex; justify-content: center; gap: 22px; margin: 0; font-size: .9rem; }
+.panel-links a { color: var(--muted); text-decoration: none; }
+.panel-links a:hover { color: var(--accent); text-decoration: underline; }
+.bars span a { color: inherit; text-decoration: underline dotted var(--accent-2); text-underline-offset: 3px; }
+.bars span a:hover { color: var(--accent-2); }

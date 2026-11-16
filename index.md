@@ -33,6 +33,13 @@ approach:
         Builds run under Wine and Proton on Linux and the Steam Deck, on
         macOS through CrossOver, and natively on Windows.
 
+explorer:
+  title: Binary explorer
+  text: >-
+    Every retail binary beside our build of it, function by function, with
+    every identical byte in green. Search the symbols, see where the last
+    bytes differ, and jump to our source on GitHub.
+
 footer: >-
   Not made or supported by Monolith Productions. No game data is hosted
   here — you need your own copies of the games.
