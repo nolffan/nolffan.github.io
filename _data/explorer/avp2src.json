@@ -1,0 +1,227 @@
+{
+ "name": "avp2src",
+ "title": "Aliens versus Predator 2",
+ "github": "nolffan/avp2src",
+ "commit": "692150a74e6d36bf907534bd41c8cdd2cee3f584",
+ "generated": "2026-11-16",
+ "binaries": [
+  {
+   "label": "lithtech.exe",
+   "stem": "lithtech",
+   "functions": 4384,
+   "bytes": 747519,
+   "identical": 79.0,
+   "stats": {
+    "identical": 4036,
+    "near": 167,
+    "small": 177,
+    "attempted": 2,
+    "todo": 2,
+    "crt": 1868
+   }
+  },
+  {
+   "label": "server.dll",
+   "stem": "server",
+   "functions": 3122,
+   "bytes": 388183,
+   "identical": 84.7,
+   "stats": {
+    "identical": 2883,
+    "near": 77,
+    "small": 162,
+    "crt": 1294
+   }
+  },
+  {
+   "label": "d3d.ren",
+   "stem": "d3d",
+   "functions": 1291,
+   "bytes": 240249,
+   "identical": 56.3,
+   "stats": {
+    "identical": 1138,
+    "near": 107,
+    "small": 45,
+    "attempted": 1,
+    "crt": 334
+   }
+  },
+  {
+   "label": "cdaudio.dll",
+   "stem": "cdaudio",
+   "functions": 81,
+   "bytes": 6194,
+   "identical": 95.1,
+   "stats": {
+    "identical": 80,
+    "near": 1,
+    "crt": 667
+   }
+  },
+  {
+   "label": "Launch.dll",
+   "stem": "Launch",
+   "functions": 28,
+   "bytes": 5599,
+   "identical": 100.0,
+   "stats": {
+    "crt": 429,
+    "identical": 28
+   }
+  },
+  {
+   "label": "PrimalHunt.exe",
+   "stem": "PrimalHunt",
+   "functions": 195,
+   "bytes": 27317,
+   "identical": 99.3,
+   "stats": {
+    "identical": 187,
+    "small": 6,
+    "near": 2,
+    "encrypted": 144,
+    "crt": 1268
+   }
+  },
+  {
+   "label": "AVP2XServ.exe",
+   "stem": "AVP2XServ",
+   "functions": 330,
+   "bytes": 61852,
+   "identical": 96.0,
+   "stats": {
+    "identical": 302,
+    "small": 27,
+    "near": 1,
+    "crt": 2453
+   }
+  },
+  {
+   "label": "PHCShell.dll",
+   "stem": "PHCShell",
+   "functions": 5835,
+   "bytes": 1343906,
+   "identical": 94.5,
+   "stats": {
+    "identical": 5270,
+    "small": 504,
+    "near": 58,
+    "todo": 3,
+    "crt": 6967
+   }
+  },
+  {
+   "label": "PHObject.lto",
+   "stem": "PHObject",
+   "functions": 10145,
+   "bytes": 2363096,
+   "identical": 95.2,
+   "stats": {
+    "identical": 9235,
+    "small": 773,
+    "near": 129,
+    "todo": 8,
+    "crt": 12711
+   }
+  },
+  {
+   "label": "AVP2.exe",
+   "stem": "AVP2",
+   "functions": 192,
+   "bytes": 27502,
+   "identical": 94.7,
+   "stats": {
+    "identical": 184,
+    "small": 6,
+    "near": 2,
+    "encrypted": 147,
+    "crt": 1212
+   }
+  },
+  {
+   "label": "AVP2Serv.exe",
+   "stem": "AVP2Serv",
+   "functions": 320,
+   "bytes": 58920,
+   "identical": 99.7,
+   "stats": {
+    "identical": 294,
+    "small": 26,
+    "crt": 2416
+   }
+  },
+  {
+   "label": "CShell.dll",
+   "stem": "CShell",
+   "functions": 6528,
+   "bytes": 1455467,
+   "identical": 98.6,
+   "stats": {
+    "identical": 6025,
+    "small": 486,
+    "near": 14,
+    "todo": 3,
+    "crt": 6762
+   }
+  },
+  {
+   "label": "Object.lto",
+   "stem": "Object",
+   "functions": 10620,
+   "bytes": 2229310,
+   "identical": 98.3,
+   "stats": {
+    "identical": 8669,
+    "small": 1934,
+    "todo": 2,
+    "near": 15,
+    "crt": 13292
+   }
+  },
+  {
+   "label": "AvP2 lithtech.exe",
+   "stem": "AVP2lithtech",
+   "functions": 4017,
+   "bytes": 702209,
+   "identical": 78.7,
+   "stats": {
+    "identical": 3717,
+    "near": 169,
+    "small": 127,
+    "attempted": 2,
+    "todo": 2,
+    "crt": 1128
+   }
+  },
+  {
+   "label": "AvP2 server.dll",
+   "stem": "AVP2server",
+   "functions": 2850,
+   "bytes": 351844,
+   "identical": 83.4,
+   "stats": {
+    "identical": 2619,
+    "near": 78,
+    "small": 151,
+    "todo": 2,
+    "crt": 1079
+   }
+  },
+  {
+   "label": "AvP2 d3d.ren",
+   "stem": "AVP2d3d",
+   "functions": 1273,
+   "bytes": 236573,
+   "identical": 56.6,
+   "stats": {
+    "identical": 1123,
+    "near": 100,
+    "small": 49,
+    "todo": 1,
+    "crt": 299
+   }
+  }
+ ],
+ "strip": "99188866759789897789990021999999799999959929999989999899999999999998999899979994599999989999999999999999999999999999999999995999999999999999999999999999999979999999999999874598917998988969999089"
+}

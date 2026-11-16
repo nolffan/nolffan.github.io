@@ -1,0 +1,129 @@
+{
+ "name": "cjacksrc",
+ "title": "Contract J.A.C.K.",
+ "github": "nolffan/cjacksrc",
+ "commit": "bc8f63dafe2ddff508d5d7709141d05fbf109cc0",
+ "generated": "2026-11-16",
+ "binaries": [
+  {
+   "label": "Lithtech.exe",
+   "stem": "Lithtech",
+   "functions": 7972,
+   "bytes": 1163487,
+   "identical": 96.8,
+   "stats": {
+    "identical": 7297,
+    "small": 645,
+    "near": 30,
+    "crt": 490,
+    "encrypted": 425
+   }
+  },
+  {
+   "label": "server.dll",
+   "stem": "server",
+   "functions": 3136,
+   "bytes": 403695,
+   "identical": 97.3,
+   "stats": {
+    "identical": 2902,
+    "small": 198,
+    "near": 36,
+    "crt": 65
+   }
+  },
+  {
+   "label": "SndDrv.dll",
+   "stem": "SndDrv",
+   "functions": 264,
+   "bytes": 28605,
+   "identical": 99.7,
+   "stats": {
+    "identical": 251,
+    "small": 8,
+    "crt": 77,
+    "near": 5
+   }
+  },
+  {
+   "label": "GameSpy.dll",
+   "stem": "GameSpy",
+   "functions": 191,
+   "bytes": 20268,
+   "identical": 95.3,
+   "stats": {
+    "identical": 176,
+    "near": 14,
+    "small": 1,
+    "middleware": 389,
+    "crt": 72
+   }
+  },
+  {
+   "label": "ContractJack.exe",
+   "stem": "ContractJack",
+   "functions": 344,
+   "bytes": 40763,
+   "identical": 99.6,
+   "stats": {
+    "identical": 328,
+    "small": 14,
+    "crt": 242,
+    "near": 2
+   }
+  },
+  {
+   "label": "ContractJackServer.exe",
+   "stem": "ContractJackServer",
+   "functions": 669,
+   "bytes": 75852,
+   "identical": 99.1,
+   "stats": {
+    "identical": 627,
+    "small": 18,
+    "near": 24,
+    "crt": 294
+   }
+  },
+  {
+   "label": "CShell.dll",
+   "stem": "CShell",
+   "functions": 6658,
+   "bytes": 1155989,
+   "identical": 94.5,
+   "stats": {
+    "identical": 6329,
+    "small": 112,
+    "near": 217,
+    "crt": 329
+   }
+  },
+  {
+   "label": "Object.lto",
+   "stem": "Object",
+   "functions": 9876,
+   "bytes": 1638452,
+   "identical": 97.1,
+   "stats": {
+    "identical": 9507,
+    "small": 175,
+    "near": 194,
+    "crt": 587
+   }
+  },
+  {
+   "label": "ClientFx.fxd",
+   "stem": "ClientFx",
+   "functions": 455,
+   "bytes": 104763,
+   "identical": 99.9,
+   "stats": {
+    "identical": 443,
+    "small": 8,
+    "crt": 444,
+    "near": 4
+   }
+  }
+ ],
+ "strip": "999999999999999999999999999799999999999999789997999999997999999999999999999999999999889999999999998999999699999999959999999999999999999999997999989999999899699999999999999999999999999999999999"
+}

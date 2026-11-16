@@ -1,0 +1,303 @@
+{
+ "name": "lithtools",
+ "title": "lithtools: the Talon tools",
+ "github": "nolffan/lithtools",
+ "commit": "c2ea15c7d2963bfd84ab442d8e1316dab0aca5ad",
+ "generated": "2026-11-16",
+ "binaries": [
+  {
+   "label": "DEdit.exe",
+   "stem": "DEdit",
+   "functions": 4305,
+   "bytes": 570071,
+   "identical": 80.0,
+   "stats": {
+    "identical": 3849,
+    "small": 189,
+    "near": 208,
+    "todo": 59,
+    "middleware": 14,
+    "crt": 5053
+   }
+  },
+  {
+   "label": "ModelEdit.exe",
+   "stem": "ModelEdit",
+   "functions": 1836,
+   "bytes": 220652,
+   "identical": 85.1,
+   "stats": {
+    "identical": 1647,
+    "small": 135,
+    "near": 46,
+    "todo": 8,
+    "crt": 3589
+   }
+  },
+  {
+   "label": "Processor.exe (AvP2)",
+   "stem": "Processor-avp2",
+   "functions": 1503,
+   "bytes": 339484,
+   "identical": 78.8,
+   "stats": {
+    "identical": 1399,
+    "small": 44,
+    "near": 57,
+    "todo": 3,
+    "crt": 1925
+   }
+  },
+  {
+   "label": "Processor.exe (NOLF)",
+   "stem": "Processor-nolf",
+   "functions": 2217,
+   "bytes": 414793,
+   "identical": 51.5,
+   "stats": {
+    "identical": 1599,
+    "near": 441,
+    "small": 143,
+    "todo": 34,
+    "crt": 1244
+   }
+  },
+  {
+   "label": "lithrez.exe",
+   "stem": "lithrez",
+   "functions": 122,
+   "bytes": 22326,
+   "identical": 97.0,
+   "stats": {
+    "identical": 121,
+    "crt": 278,
+    "near": 1
+   }
+  },
+  {
+   "label": "TProcessor.exe",
+   "stem": "TProcessor",
+   "functions": 1314,
+   "bytes": 236418,
+   "identical": 0.0,
+   "stats": {
+    "todo": 1314,
+    "crt": 526
+   }
+  },
+  {
+   "label": "LithExport.dll (AvP2)",
+   "stem": "LithExport-avp2",
+   "functions": 1408,
+   "bytes": 156440,
+   "identical": 0.0,
+   "stats": {
+    "todo": 1408,
+    "crt": 547
+   }
+  },
+  {
+   "label": "LithExport.dll (NOLF)",
+   "stem": "LithExport-nolf",
+   "functions": 3701,
+   "bytes": 266971,
+   "identical": 0.0,
+   "stats": {
+    "todo": 3701,
+    "crt": 780
+   }
+  },
+  {
+   "label": "LandExport.dll (AvP2)",
+   "stem": "LandExport-avp2",
+   "functions": 511,
+   "bytes": 72518,
+   "identical": 0.0,
+   "stats": {
+    "todo": 511,
+    "crt": 480
+   }
+  },
+  {
+   "label": "LandExport.dll (NOLF)",
+   "stem": "LandExport-nolf",
+   "functions": 511,
+   "bytes": 72146,
+   "identical": 0.0,
+   "stats": {
+    "todo": 511,
+    "crt": 480
+   }
+  },
+  {
+   "label": "LithMayaExport.mll",
+   "stem": "LithMayaExport",
+   "functions": 206,
+   "bytes": 37710,
+   "identical": 0.0,
+   "stats": {
+    "todo": 206,
+    "crt": 481
+   }
+  },
+  {
+   "label": "IMFLithDTX.dll",
+   "stem": "IMFLithDTX",
+   "functions": 186,
+   "bytes": 19893,
+   "identical": 96.7,
+   "stats": {
+    "identical": 131,
+    "small": 55,
+    "crt": 10
+   }
+  },
+  {
+   "label": "MaxDTXLoader30.bmi",
+   "stem": "MaxDTXLoader30",
+   "functions": 219,
+   "bytes": 20233,
+   "identical": 96.3,
+   "stats": {
+    "identical": 149,
+    "small": 70,
+    "crt": 14
+   }
+  },
+  {
+   "label": "MaxDTXLoader40.bmi",
+   "stem": "MaxDTXLoader40",
+   "functions": 226,
+   "bytes": 20534,
+   "identical": 96.2,
+   "stats": {
+    "identical": 153,
+    "small": 73,
+    "crt": 14
+   }
+  },
+  {
+   "label": "MaxModelExport30.dle",
+   "stem": "MaxModelExport30",
+   "functions": 420,
+   "bytes": 39886,
+   "identical": 96.0,
+   "stats": {
+    "identical": 276,
+    "small": 144,
+    "crt": 183
+   }
+  },
+  {
+   "label": "MaxModelExport40.dle",
+   "stem": "MaxModelExport40",
+   "functions": 428,
+   "bytes": 43465,
+   "identical": 96.3,
+   "stats": {
+    "identical": 284,
+    "small": 144,
+    "crt": 208
+   }
+  },
+  {
+   "label": "MaxWorldExport30.dle",
+   "stem": "MaxWorldExport30",
+   "functions": 475,
+   "bytes": 67673,
+   "identical": 86.6,
+   "stats": {
+    "identical": 298,
+    "small": 174,
+    "near": 3,
+    "crt": 609
+   }
+  },
+  {
+   "label": "MaxWorldExport40.dle",
+   "stem": "MaxWorldExport40",
+   "functions": 482,
+   "bytes": 68024,
+   "identical": 86.7,
+   "stats": {
+    "identical": 305,
+    "small": 174,
+    "near": 3,
+    "crt": 606
+   }
+  },
+  {
+   "label": "MaxWorldImport30.dli",
+   "stem": "MaxWorldImport30",
+   "functions": 569,
+   "bytes": 44521,
+   "identical": 95.1,
+   "stats": {
+    "identical": 378,
+    "small": 191,
+    "crt": 252
+   }
+  },
+  {
+   "label": "MaxWorldImport40.dli",
+   "stem": "MaxWorldImport40",
+   "functions": 575,
+   "bytes": 44674,
+   "identical": 95.1,
+   "stats": {
+    "identical": 384,
+    "small": 191,
+    "crt": 252
+   }
+  },
+  {
+   "label": "MayaModelExport30.mll",
+   "stem": "MayaModelExport30",
+   "functions": 401,
+   "bytes": 49702,
+   "identical": 96.9,
+   "stats": {
+    "identical": 263,
+    "small": 138,
+    "crt": 421
+   }
+  },
+  {
+   "label": "MayaModelExport40.mll",
+   "stem": "MayaModelExport40",
+   "functions": 401,
+   "bytes": 49702,
+   "identical": 96.9,
+   "stats": {
+    "identical": 263,
+    "small": 138,
+    "crt": 421
+   }
+  },
+  {
+   "label": "MayaWorldExport30.mll",
+   "stem": "MayaWorldExport30",
+   "functions": 707,
+   "bytes": 115652,
+   "identical": 97.9,
+   "stats": {
+    "identical": 501,
+    "small": 206,
+    "crt": 1215
+   }
+  },
+  {
+   "label": "MayaWorldExport40.mll",
+   "stem": "MayaWorldExport40",
+   "functions": 707,
+   "bytes": 115652,
+   "identical": 97.9,
+   "stats": {
+    "identical": 501,
+    "small": 206,
+    "crt": 1213
+   }
+  }
+ ],
+ "strip": "9789998957599959981989129604995999999969929999999969899759297916984499641320194102664165942944999000000000000000000000000000000000000000000000000000999999998999899979979999999999999999999999"
+}
